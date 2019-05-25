@@ -1,6 +1,7 @@
 //! Fast fused multiply-add operations that gracefully fall-back to unused
 //! operations (involving a change in the precision and a slight but not
 //! drastic loss in the performance).
+#[cfg(feature = "packed_simd")]
 use packed_simd::f32x4;
 use std::ops::{Add, Mul, Neg, Sub};
 
@@ -67,6 +68,7 @@ impl Fma for f64 {
     }
 }
 
+#[cfg(feature = "packed_simd")]
 impl Fma for f32x4 {
     #[inline]
     fn fmadd(self, a: Self, b: Self) -> Self {
