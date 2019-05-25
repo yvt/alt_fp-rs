@@ -1,8 +1,8 @@
 //! Fast fused multiply-add operations that gracefully fall-back to unused
 //! operations (involving a change in the precision and a slight but not
 //! drastic loss in the performance).
-use std::ops::{Add, Mul, Neg, Sub};
 use packed_simd::f32x4;
+use std::ops::{Add, Mul, Neg, Sub};
 
 /// Implements fused mutliply-add with an unfused fall-back.
 ///
